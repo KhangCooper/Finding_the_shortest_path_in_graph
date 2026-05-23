@@ -11,7 +11,10 @@ The project focuses on applying the $A^{*}$ algorithm to solve four distinct pra
 
 ## 📖 Algorithm Overview
 The A* algorithm guarantees the optimal path by combining the strengths of Dijkstra's algorithm and Greedy Best-First Search. It uses the cost function:
-$$f(n) = g(n) + h(n)$$ 
+
+$$
+f(n) = g(n) + h(n)
+$$
 
 Where:
 * $g(n)$: The actual cost from the start node to the current node.
@@ -29,9 +32,21 @@ The project is divided into four main programming tasks:
 ### 2. Drone Delivery in 2D Space 
 * **Problem:** Determine the shortest delivery route between points in a 2D coordinate system using weighted edges.
 * **Implementation:** Supports three heuristic distance metrics to evaluate performance:
-  * Mode 1: Manhattan distance ($h(n) = |x_1 - x_2| + |y_1 - y_2|$).
-  * Mode 2: Euclidean distance ($h(n) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$).
-  * Mode 3: Chebyshev distance ($h(n) = \max(|x_1 - x_2|, |y_1 - y_2|)$).
+
+  * Mode 1: Manhattan distance:
+    ```math
+    h(n) = |x_1 - x_2| + |y_1 - y_2|
+    ```
+
+  * Mode 2: Euclidean distance:
+    ```math
+    h(n) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}
+    ```
+
+  * Mode 3: Chebyshev distance:
+    ```math
+    h(n) = \max(|x_1 - x_2|, |y_1 - y_2|)
+    ```
 
 ### 3. Warehouse Robot Navigation
 * **Problem:** Navigate a robot through an $m \times n$ warehouse grid, avoiding blocked cells (obstacles).
@@ -43,9 +58,9 @@ The project is divided into four main programming tasks:
 
 ## 📂 Project Structure
 
-All implementations use only default $C++$ libraries (`<iostream>`, `<fstream>`, `<string>`, `<cmath>`, `<vector>`, `<algorithm>`).
+All implementations use only default C++ libraries (`<iostream>`, `<fstream>`, `<string>`, `<cmath>`, `<vector>`, `<algorithm>`).
 
-* `PathNode.h` / `PathNode.cpp`: Defines the common linked list data structure used to store and output the final paths[cite: 191, 206]. Each node contains the name, $f(n)$, $g(n)$, $h(n)$, and a pointer to the next step.
+* `PathNode.h` / `PathNode.cpp`: Defines the common linked list data structure used to store and output the final paths. Each node contains the name, $f(n)$, $g(n)$, $h(n)$, and a pointer to the next step.
 * `Algo.h` / `Algo.cpp`: Contains the core implementation logic for all four A* search functions (`findSocialPath`, `findDronePath`, `findWarehousePath`, `findEvacuationPath`).
 * `main.cpp`: The driver program containing sample test cases and the `printPath` utility to demonstrate the functionality of each task.
 
@@ -55,14 +70,3 @@ All implementations use only default $C++$ libraries (`<iostream>`, `<fstream>`,
    ```bash
    git clone <your-repository-url>
    cd <repository-folder>
-
-2. Compile the source code using ```g++```:
-   ```bash
-   g++ main.cpp Algo.cpp PathNode.cpp -o astar_project
- 
-3. Run the executable:
-   Windows
-   ```astar_project.exe```
-
-   Linux/Mac
-   ```./astar_project```
